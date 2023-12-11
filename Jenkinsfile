@@ -104,15 +104,15 @@ pipeline {
  //    }
     
 
-    stage('Docker Build and Push') {
-      steps {
-        // withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
-          sh 'printenv'
-          sh 'sudo docker build -t jonlimpw/numeric-app:""$GIT_COMMIT"" .'
-          sh 'docker push jonlimpw/numeric-app:""$GIT_COMMIT""'
-        // }
-      }
-    } 
+    // stage('Docker Build and Push') {
+    //   steps {
+    //     // withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
+    //       sh 'printenv'
+    //       sh 'sudo docker build -t jonlimpw/numeric-app:""$GIT_COMMIT"" .'
+    //       sh 'docker push jonlimpw/numeric-app:""$GIT_COMMIT""'
+    //     // }
+    //   }
+    // } 
 
  //    stage('Vulnerability Scan - Kubernetes') {
  //      steps {
@@ -130,22 +130,22 @@ pipeline {
  //      }
  //    }
 
- //    stage('K8S Deployment - DEV') {
- //      steps {
- //        parallel(
- //          "Deployment": {
- //            withKubeConfig([credentialsId: 'kubeconfig']) {
- //              sh "bash k8s-deployment.sh"
- //            }
- //          },
- //          "Rollout Status": {
- //            withKubeConfig([credentialsId: 'kubeconfig']) {
- //              sh "bash k8s-deployment-rollout-status.sh"
- //            }
- //          }
- //        )
- //      }
- //    }
+    stage('K8S Deployment - DEV') {
+      steps {
+        parallel(
+          "Deployment": {
+            withKubeConfig([credentialsId: 'kubeconfig']) {
+              sh "bash k8s-deployment.sh"
+            }
+          },
+          "Rollout Status": {
+            withKubeConfig([credentialsId: 'kubeconfig']) {
+              sh "bash k8s-deployment-rollout-status.sh"
+            }
+          }
+        )
+      }
+    }
 
  //    stage('Integration Tests - DEV') {
  //      steps {
