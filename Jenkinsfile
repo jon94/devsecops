@@ -40,7 +40,7 @@
 /////// ******************************* Code for fectching Failed Stage Name ******************************* ///////
 
 pipeline {
-  agent any
+  agent any 
 
   // environment {
   //   deploymentName = "devsecops"
