@@ -112,7 +112,7 @@ pipeline {
           sh 'docker push jonlimpw/numeric-app:""$GIT_COMMIT""'
         }
       }
-    }
+    } 
 
  //    stage('Vulnerability Scan - Kubernetes') {
  //      steps {
