@@ -78,7 +78,7 @@ pipeline {
           sh 'printenv'
           sh 'sudo docker build -t jonlimpw/numeric-app:""$GIT_COMMIT"" .'
           sh 'sudo docker push jonlimpw/numeric-app:""$GIT_COMMIT""'
-        // }
+        }
       }
     } 
  //    stage('SonarQube - SAST') {
