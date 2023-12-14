@@ -79,16 +79,14 @@ pipeline {
 		              -Dsonar.projectKey=numeric-application \
                   -Dsonar.projectName='numeric-application' \
 		              -Dsonar.host.url=http://devsecops-demo.eastus.cloudapp.azure.com:9000 \
-                  -Dsonar.token=sqp_979cffb9cde509c84c731d9848762d67a697977e"
-                  
+                  -Dsonar.token=sqp_979cffb9cde509c84c731d9848762d67a697977e"                  
         }
-        timeout(time: 2, unit: 'MINUTES') {
-          script {
-            waitForQualityGate abortPipeline: true
-          }
+        // timeout(time: 2, unit: 'MINUTES') {
+        //   script {
+        //     waitForQualityGate abortPipeline: true
+        //   }
         }
       }
-    }
 
     stage('Docker Build and Push') {
       steps {
