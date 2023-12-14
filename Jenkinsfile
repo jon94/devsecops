@@ -75,7 +75,7 @@ pipeline {
     stage('SonarQube - SAST') {
       steps {
         // withSonarQubeEnv('SonarQube') {
-          sh "mvn org.sonar:sonar \
+          sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar \
 		              -Dsonar.projectKey=numeric-application \
                   -Dsonar.projectName='numeric-application' \
 		              -Dsonar.host.url=http://localhost:9000 \
