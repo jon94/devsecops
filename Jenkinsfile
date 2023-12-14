@@ -78,7 +78,7 @@ pipeline {
           sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar \
 		              -Dsonar.projectKey=numeric-application \
                   -Dsonar.projectName='numeric-application' \
-		              -Dsonar.host.url=http://devsecops-demo.eastus.cloudapp.azure.com:9000 \
+		              -Dsonar.host.url=http://localhost:9000 \
                   -Dsonar.login=sqp_979cffb9cde509c84c731d9848762d67a697977e"                  
         }
         // timeout(time: 2, unit: 'MINUTES') {
