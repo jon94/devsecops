@@ -1,4 +1,5 @@
-FROM adoptopenjdk/openjdk8:alpine-slim
+# FROM adoptopenjdk/openjdk8:alpine-slim
+FROM openjdk:22-ea-jdk
 EXPOSE 8080
 ARG JAR_FILE=target/*.jar
 RUN addgroup -S pipeline && adduser -S k8s-pipeline -G pipeline
